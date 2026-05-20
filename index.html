@@ -64,7 +64,7 @@ body::before {
 header {
   position: relative;
   z-index: 2;
-  padding: 0.8rem 1.2rem 0.3rem;
+  padding: 0.6rem 1.2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +134,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.8rem 0.5rem 0;
+  padding: 0 0.5rem 0;
 }
 
 .wheel-section {
@@ -144,7 +144,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.3rem 0 0.8rem;
+  margin: 0 0 0.5rem;
 }
 
 .pointer-wrap {
@@ -271,23 +271,24 @@ main {
 
 .info-bar {
   text-align: center;
-  color: var(--ink);
-  font-size: clamp(0.75rem, 1.8vw, 1rem);
-  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  font-size: clamp(0.58rem, 1.3vw, 0.72rem);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin: 0.4rem auto 0;
-  font-family: var(--font-display);
-  background: rgba(255, 45, 138, 0.1);
-  border: 1.5px solid var(--accent);
-  padding: 0.6rem 1.5rem;
-  box-shadow: 0 0 20px rgba(255, 45, 138, 0.22);
+  margin: 0.2rem auto 0;
+  font-family: var(--font-body);
+  background: none;
+  border: none;
+  padding: 0.2rem 1rem;
+  box-shadow: none;
   max-width: 520px;
   width: 92vw;
+  opacity: 0.55;
 }
 
 .info-bar .arrow {
   color: var(--accent-2);
-  margin: 0 0.3rem;
+  margin: 0 0.25rem;
 }
 
 /* ============ STATS (ocultos, mantidos no DOM) ============ */
@@ -603,8 +604,8 @@ footer .ufla { color: var(--warning); }
   }
 
   .info-bar {
-    font-size: clamp(0.6rem, 1.4vh, 0.8rem);
-    padding: 0.4rem 1.2rem;
+    font-size: clamp(0.52rem, 1.2vh, 0.68rem);
+    padding: 0.2rem 1rem;
     width: auto;
     max-width: min(78vw, 500px);
   }
@@ -693,35 +694,37 @@ footer .ufla { color: var(--warning); }
 <script>
 const actions = [
   { text: "Mostrar propaganda baseada no que o adolescente curte, comenta e assiste.", legal: false, article: "Art. 22", explanation: "É VEDADA a utilização de técnicas de perfilamento para direcionamento de publicidade comercial a crianças e adolescentes." },
-  { text: "Manter a localização do usuário sempre ligada, sem aviso prévio.", legal: false, article: "Art. 17, §4º, VI", explanation: "As configurações-padrão devem RESTRINGIR o compartilhamento da geolocalização e fornecer aviso prévio e claro." },
+  { text: "Manter a localização sempre ligada, sem aviso.", legal: false, article: "Art. 17, §4º, VI", explanation: "As configurações-padrão devem RESTRINGIR o compartilhamento da geolocalização e fornecer aviso prévio e claro." },
   { text: "Recomendar mais e mais vídeos parecidos pro adolescente não sair do app.", legal: false, article: "Art. 8º, IV + Art. 17, §4º, II", explanation: "Devem ser adotadas, por padrão, configurações que EVITEM o uso compulsivo. Vedados recursos que sustentam artificialmente o uso." },
-  { text: "Vender dados pessoais de adolescentes para empresas de publicidade.", legal: false, article: "Art. 26", explanation: "É VEDADA a criação de perfis comportamentais de crianças e adolescentes para fins de direcionamento de publicidade comercial." },
-  { text: "Pedir só 'qual é a sua idade?' para liberar conteúdo +18.", legal: false, article: "Art. 9º, §1º", explanation: "É VEDADA a autodeclaração. Devem ser adotados mecanismos CONFIÁVEIS de verificação de idade a cada acesso." },
-  { text: "Mandar notificação a cada 5 minutos pro adolescente voltar ao app.", legal: false, article: "Art. 17, §4º, II", explanation: "Vedado o uso de recursos para aumentar, sustentar ou estender artificialmente o uso do serviço, INCLUSIVE notificações." },
-  { text: "Oferecer 'caixinhas surpresa' pagas (loot boxes) em jogo voltado para crianças.", legal: false, article: "Art. 20", explanation: "São EXPRESSAMENTE VEDADAS as caixas de recompensa (loot boxes) em jogos direcionados a crianças e adolescentes." },
-  { text: "Deixar o perfil do adolescente PÚBLICO por padrão, com tudo visível.", legal: false, article: "Art. 7º", explanation: "O produto deve OPERAR POR PADRÃO no grau MAIS ELEVADO de proteção da privacidade e dos dados pessoais." },
-  { text: "Tocar vídeo após vídeo automaticamente, sem o usuário pedir (autoplay).", legal: false, article: "Art. 17, §4º, II", explanation: "Vedada, por padrão, a REPRODUÇÃO AUTOMÁTICA de mídia que estende artificialmente o tempo de uso." },
-  { text: "Usar a foto enviada para verificar idade pra treinar a IA de recomendação.", legal: false, article: "Art. 13", explanation: "Os dados coletados para verificação de idade podem ser utilizados UNICAMENTE para essa finalidade." },
-  { text: "Deixar adolescente de 13 anos abrir conta em rede social sem vincular a um responsável.", legal: false, article: "Art. 24", explanation: "Contas de crianças e adolescentes de ATÉ 16 ANOS devem estar VINCULADAS à conta de um responsável legal." },
-  { text: "Esconder o botão de denúncia atrás de cinco menus diferentes.", legal: false, article: "Art. 28 + Art. 29, §3º", explanation: "Fornecedores devem disponibilizar mecanismos de notificação ACESSÍVEIS e de FÁCIL ACESSO." },
-  { text: "Deixar o botão 'desativar controle parental' grande e o 'manter ligado' minúsculo.", legal: false, article: "Art. 18, §2º", explanation: "É VEDADO projetar interfaces que comprometam a autonomia ou enfraqueçam salvaguardas parentais (dark patterns)." },
-  { text: "Permitir monetização de vídeos com crianças dançando de forma sensual.", legal: false, article: "Art. 23", explanation: "São VEDADOS a monetização e o impulsionamento de conteúdos que retratem crianças/adolescentes de forma erotizada." },
-  { text: "Empurrar conteúdo de dietas radicais e 'antes/depois' pro feed de meninas adolescentes.", legal: false, article: "Art. 6º, III", explanation: "Devem ser tomadas medidas para prevenir conteúdos que induzam a danos à saúde física ou mental." },
-  { text: "Deixar qualquer adulto desconhecido mandar mensagem direta para uma criança.", legal: false, article: "Art. 17, §4º, I", explanation: "Configurações-padrão devem RESTRINGIR a comunicação por usuários não autorizados." },
-  { text: "Mostrar anúncios de bets, cassino online e apostas no feed do adolescente.", legal: false, article: "Art. 6º, IV", explanation: "Vedada a promoção e comercialização de JOGOS DE AZAR, APOSTAS e loterias a crianças e adolescentes." },
-  { text: "Receber denúncia de conteúdo de exploração sexual de criança e simplesmente ignorar.", legal: false, article: "Art. 27 + Art. 29", explanation: "Fornecedores DEVEM remover IMEDIATAMENTE conteúdos de exploração e abuso sexual e comunicar às autoridades." },
-  { text: "Operar como app estrangeiro no Brasil sem representante legal no país.", legal: false, article: "Art. 40", explanation: "Fornecedores DEVEM manter representante legal no País, com poderes para responder perante autoridades brasileiras." },
-  { text: "Usar filtro de realidade aumentada que mostra produtos pra criança comprar.", legal: false, article: "Art. 22", explanation: "É VEDADO o emprego de realidade aumentada, estendida e virtual para direcionar publicidade a crianças." },
-  { text: "Liberar chat aberto com qualquer jogador em jogo infantil, sem configurar nada.", legal: false, article: "Art. 21, par. único", explanation: "Os jogos com interação devem, POR PADRÃO, limitar a comunicação, assegurando consentimento dos responsáveis." },
-  { text: "Analisar a expressão facial da criança pela câmera pra personalizar anúncios.", legal: false, article: "Art. 22", explanation: "É VEDADO o emprego de ANÁLISE EMOCIONAL para direcionamento de publicidade a crianças e adolescentes." },
-  { text: "Oferecer aos pais uma ferramenta para limitar o tempo de tela do filho.", legal: true, article: "Art. 17, IV", explanation: "OBRIGAÇÃO da lei: oferecer funcionalidades que permitam LIMITAR e MONITORAR o tempo de uso." },
-  { text: "Mostrar claramente a classificação indicativa de cada conteúdo antes do acesso.", legal: true, article: "Art. 8º, V", explanation: "OBRIGAÇÃO da lei: informar EXTENSIVAMENTE sobre a faixa etária indicada para o conteúdo." },
-  { text: "Permitir que os pais bloqueiem compras dentro do aplicativo da criança.", legal: true, article: "Art. 18, II", explanation: "OBRIGAÇÃO da lei: ferramentas de supervisão parental devem RESTRINGIR compras e transações financeiras." },
-  { text: "Publicar relatório semestral sobre denúncias recebidas e moderação de conteúdo.", legal: true, article: "Art. 31", explanation: "OBRIGAÇÃO para provedores com mais de 1 MILHÃO de usuários crianças/adolescentes: elaborar relatórios SEMESTRAIS." },
-  { text: "Pedir documento ou certificação confiável para verificar idade em site +18.", legal: true, article: "Art. 9º, §1º + Art. 12", explanation: "OBRIGAÇÃO da lei: adotar mecanismos CONFIÁVEIS, auditáveis e seguros de aferição de idade." },
-  { text: "Por padrão, deixar a conta do adolescente totalmente privada e a privacidade no máximo.", legal: true, article: "Art. 7º", explanation: "OBRIGAÇÃO da lei: operar POR PADRÃO no grau MAIS ELEVADO de proteção da privacidade. Privacy by default." },
-  { text: "Disponibilizar todas as informações sobre supervisão parental em português claro.", legal: true, article: "Art. 18, VI", explanation: "OBRIGAÇÃO: as ferramentas de supervisão parental devem dispor de informações em LÍNGUA PORTUGUESA." },
-  { text: "Suspender a conta de adulto que está mandando mensagens suspeitas para crianças.", legal: true, article: "Art. 6º + Art. 27 + Art. 17, §4º, I", explanation: "OBRIGAÇÃO: prevenir contato com agentes de risco, atuar sobre aliciamento e restringir comunicação não autorizada." }
+  { text: "Vender dados pessoais de adolescentes para anunciantes.", legal: false, article: "Art. 26", explanation: "É VEDADA a criação de perfis comportamentais de crianças e adolescentes para fins de direcionamento de publicidade comercial." },
+  { text: "Pedir só 'qual é sua idade?' para liberar conteúdo +18.", legal: false, article: "Art. 9º, §1º", explanation: "É VEDADA a autodeclaração. Devem ser adotados mecanismos CONFIÁVEIS de verificação de idade a cada acesso." },
+  { text: "Notificação a cada 5 minutos pro adolescente voltar.", legal: false, article: "Art. 17, §4º, II", explanation: "Vedado o uso de recursos para aumentar, sustentar ou estender artificialmente o uso do serviço, INCLUSIVE notificações." },
+  { text: "Caixinhas surpresa pagas (loot boxes) em jogo infantil.", legal: false, article: "Art. 20", explanation: "São EXPRESSAMENTE VEDADAS as caixas de recompensa (loot boxes) em jogos direcionados a crianças e adolescentes." },
+  { text: "Perfil público por padrão.", legal: false, article: "Art. 7º", explanation: "O produto deve OPERAR POR PADRÃO no grau MAIS ELEVADO de proteção da privacidade e dos dados pessoais." },
+  { text: "Autoplay — vídeo após vídeo automático.", legal: false, article: "Art. 17, §4º, II", explanation: "Vedada, por padrão, a REPRODUÇÃO AUTOMÁTICA de mídia que estende artificialmente o tempo de uso." },
+  { text: "Usar foto de verificação de idade para treinar IA.", legal: false, article: "Art. 13", explanation: "Os dados coletados para verificação de idade podem ser utilizados UNICAMENTE para essa finalidade." },
+  { text: "Adolescente de 13 anos abrir conta sem vincular ao responsável.", legal: false, article: "Art. 24", explanation: "Contas de crianças e adolescentes de ATÉ 16 ANOS devem estar VINCULADAS à conta de um responsável legal." },
+  { text: "Esconder botão de denúncia em cinco menus.", legal: false, article: "Art. 28 + Art. 29, §3º", explanation: "Fornecedores devem disponibilizar mecanismos de notificação ACESSÍVEIS e de FÁCIL ACESSO." },
+  { text: "Dark pattern para desativar controle parental.", legal: false, article: "Art. 18, §2º", explanation: "É VEDADO projetar interfaces que comprometam a autonomia ou enfraqueçam salvaguardas parentais (dark patterns)." },
+  { text: "Monetizar vídeos com crianças sensualizadas.", legal: false, article: "Art. 23", explanation: "São VEDADOS a monetização e o impulsionamento de conteúdos que retratem crianças/adolescentes de forma erotizada." },
+  { text: "Empurrar dietas radicais pro feed de adolescentes.", legal: false, article: "Art. 6º, III", explanation: "Devem ser tomadas medidas para prevenir conteúdos que induzam a danos à saúde física ou mental — como transtornos alimentares." },
+  { text: "Adulto estranho mandar DM para criança por padrão.", legal: false, article: "Art. 17, §4º, I", explanation: "Configurações-padrão devem RESTRINGIR a comunicação por usuários não autorizados." },
+  { text: "Anúncios de bets, cassino e apostas online no feed de adolescente.", legal: false, article: "Art. 6º, IV", explanation: "Vedada a promoção e comercialização de JOGOS DE AZAR, APOSTAS e loterias a crianças e adolescentes." },
+  { text: "Ignorar denúncia de exploração sexual de criança.", legal: false, article: "Art. 27 + Art. 29", explanation: "Fornecedores DEVEM remover IMEDIATAMENTE conteúdos de exploração e abuso sexual e comunicar às autoridades." },
+  { text: "Inferir depressão, ansiedade, sexualidade ou vulnerabilidade emocional a partir de curtidas e tempo de tela.", legal: false, article: "Art. 6, Art. 22 e Art. 26", explanation: "É VEDADO o perfilamento de características sensíveis como saúde mental, orientação sexual e estado emocional de crianças e adolescentes." },
+  { text: "Realidade aumentada para vender produtos a crianças.", legal: false, article: "Art. 22", explanation: "É VEDADO o emprego de realidade aumentada, estendida e virtual para direcionar publicidade a crianças e adolescentes." },
+  { text: "Chat aberto em jogo infantil por padrão.", legal: false, article: "Art. 21, par. único", explanation: "Os jogos com interação devem, POR PADRÃO, limitar a comunicação, assegurando consentimento dos responsáveis." },
+  { text: "Analisar expressão facial da criança pra personalizar anúncios.", legal: false, article: "Art. 22", explanation: "É VEDADO o emprego de ANÁLISE EMOCIONAL para direcionamento de publicidade a crianças e adolescentes." },
+  { text: "Ferramenta para pais limitarem tempo de tela.", legal: true, article: "Art. 17, IV", explanation: "OBRIGAÇÃO da lei: oferecer funcionalidades que permitam LIMITAR e MONITORAR o tempo de uso." },
+  { text: "Mostrar classificação indicativa antes do acesso aos aplicativos.", legal: true, article: "Art. 8º, V", explanation: "OBRIGAÇÃO da lei: informar EXTENSIVAMENTE sobre a faixa etária indicada para o conteúdo." },
+  { text: "Permitir pais bloquearem compras dentro do app.", legal: true, article: "Art. 18, II", explanation: "OBRIGAÇÃO da lei: ferramentas de supervisão parental devem RESTRINGIR compras e transações financeiras." },
+  { text: "Relatório semestral sobre denúncias e moderação.", legal: true, article: "Art. 31", explanation: "OBRIGAÇÃO para provedores com mais de 1 MILHÃO de usuários crianças/adolescentes: elaborar relatórios SEMESTRAIS." },
+  { text: "Verificação de idade com documento confiável.", legal: true, article: "Art. 9º, §1º + Art. 12", explanation: "OBRIGAÇÃO da lei: adotar mecanismos CONFIÁVEIS, auditáveis e seguros de aferição de idade." },
+  { text: "Usar 'aceito tudo' como única opção para criança/adolescente acessar o app.", legal: false, article: "Art. 7, §1º", explanation: "É VEDADO o consentimento genérico em bloco. Deve ser ESPECÍFICO, DESTACADO e separado de outros consentimentos." },
+  { text: "Informações sobre supervisão parental em português claro.", legal: true, article: "Art. 18, VI", explanation: "OBRIGAÇÃO: as ferramentas de supervisão parental devem dispor de informações em LÍNGUA PORTUGUESA." },
+  { text: "Suspender conta de adulto que manda mensagens suspeitas para crianças.", legal: true, article: "Art. 6º + Art. 27 + Art. 17, §4º, I", explanation: "OBRIGAÇÃO: prevenir contato com agentes de risco, atuar sobre aliciamento e restringir comunicação não autorizada." },
+  { text: "Exibir 'amigos em comum' de criança para adultos desconhecidos.", legal: false, article: "Art. 7", explanation: "É VEDADO expor a rede de relacionamentos de crianças a desconhecidos. A privacidade MÁXIMA deve ser a configuração padrão." },
+  { text: "Recusar explicação sobre decisão automatizada que bloqueou, ranqueou ou restringiu conta de adolescente.", legal: false, article: "Art. 30", explanation: "Fornecedores DEVEM assegurar mecanismos de contestação e revisão de decisões automatizadas que afetem crianças e adolescentes." }
 ];
 
 const NUM_SEG = actions.length;
